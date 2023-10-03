@@ -15,8 +15,7 @@ func getEnvDefault(key string, defVal string) string {
 	return defVal
 }
 
-func main() {
-
+func SetupRouter() *gin.Engine {
 	r := gin.Default()
 
 	r.GET("/", func(c *gin.Context) {
@@ -25,7 +24,14 @@ func main() {
 			"message":    "Hello World!",
 		})
 	})
+	return r
+}
 
+func main() {
+
+	r := SetupRouter()
 	PORT := getEnvDefault("PORT", ":8080")
-	r.Run(PORT) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	// listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	r.Run(PORT)
+
 }

@@ -36,6 +36,12 @@ go build main.go
 ./main #Linux
 ```
 
+## 测试
+
+```sh
+go test
+```
+
 ## 作者
 
 
